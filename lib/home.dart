@@ -44,6 +44,14 @@ class _MyHomePageState extends State<MyHomePage> {
                     },
                   ),
                 ),
+                Padding(
+                  padding: EdgeInsets.only(right: 10),
+                  child: Consumer<Cart>(
+                    builder: (BuildContext context, value, child) {
+                      return Text("${value.price}");
+                    },
+                  ),
+                ),
               ],
             )
           ],
