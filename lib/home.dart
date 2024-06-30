@@ -1,3 +1,4 @@
+import 'package:cart_app_with_provider/checkout.dart';
 import 'package:cart_app_with_provider/model/cart.dart';
 import 'package:cart_app_with_provider/model/product.dart';
 import 'package:flutter/material.dart';
@@ -26,7 +27,13 @@ class _MyHomePageState extends State<MyHomePage> {
             Row(
               children: [
                 IconButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(builder: (context) {
+                        return Checkout();
+                      }),
+                    );
+                  },
                   icon: Icon(Icons.add_shopping_cart),
                 ),
                 Padding(
@@ -49,7 +56,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   builder: (context, value, child) {
                     return ListTile(
                       title: Text("${products[i].name}"),
-                      //subtitle: (Text('${products[i].price}')),
+                      subtitle: (Text('${products[i].price}')),
                       trailing: IconButton(
                         icon: Icon(Icons.add),
                         onPressed: () {
