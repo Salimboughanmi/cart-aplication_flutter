@@ -20,12 +20,14 @@ class _CheckoutState extends State<Checkout> {
         body: Consumer<Cart>(
           builder: (context, cart, child) {
             return ListView.builder(
-                itemCount: cart.basketItem.length,
+                itemCount: cart.basketItem.length, //RemoveProduct
                 itemBuilder: (context, i) {
                   return ListTile(
                     title: Text("${cart.basketItem[i].name}"),
                     trailing: IconButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        cart.RemoveProduct(cart.basketItem[i]);
+                      },
                       icon: Icon(Icons.remove_circle),
                     ),
                   );

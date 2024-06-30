@@ -23,4 +23,11 @@ class Cart with ChangeNotifier {
   List<Product> get basketItem {
     return _item;
   }
+
+  void RemoveProduct(Product product) {
+    _item.remove(product);
+    _price -= product.price;
+
+    notifyListeners();
+  }
 }
